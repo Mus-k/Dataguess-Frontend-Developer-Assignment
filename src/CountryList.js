@@ -1,28 +1,44 @@
 import React, { useState, useEffect, useCallback } from "react";
-const CountryList = ({ onSelect, data, error, loading }) => {
-  const [filter, setFilter] = useState('');
-  const [selectedItem, setSelectedItem] = useState(null);
+import "./App.css";
+const COLORS = ["yellow", "#33FF57", "#5733FF", "#FFFF33", "#33FFFF"];
 
+const CountryList = ({ data, error, loading }) => {
+  const [selectedColor, setSelectedColor] = useState(COLORS[0]);
+  const [filter, setFilter] = useState("");
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [click, setClick] = useState(false);
+  console.log(selectedColor);
   const handleSelect = useCallback((item) => {
     setSelectedItem(item);
-    onSelect(item);
-  }, [onSelect]);
-
+    // onSelect(item);
+  }, []);
+  const changeColor = () => {
+    setSelectedColor(COLORS[1]);
+    setClick(true);
+  };
+  // const tenItems=data.countries.slice(0, 10).map(el=>
+  //   el
+  //   )
+  //   console.log(tenItems);
   useEffect(() => {
     if (data && data.countries.length > 0) {
-      const initialSelection = data.countries.length >= 10 ? 9 : data.countries.length - 1;
-      handleSelect(data.countries[initialSelection]);
+      const initialSelection =
+        data.countries.length >= 10 ? 9 : data.countries.length - 1;
+
+      if (!click) {
+        handleSelect(data.countries[initialSelection]);
+      }
     }
-  }, [data, handleSelect]);
+  }, [data, handleSelect, click]);
 
   const filteredCountries = data
     ? data.countries.filter((country) =>
         filter
           .toLowerCase()
-          .split(' ')
+          .split(" ")
           .every((term) =>
-            term.startsWith('group:')
-              ? country.size === term.split(':')[1]
+            term.startsWith("group:")
+              ? country.size === term.split(":")[1]
               : country.name.toLowerCase().includes(term)
           )
       )
@@ -44,11 +60,17 @@ const CountryList = ({ onSelect, data, error, loading }) => {
         ) : filteredCountries.length === 0 ? (
           <p>No matching countries found.</p>
         ) : (
-          filteredCountries.map((country) => (
+          filteredCountries.map((country, index) => (
             <li
-              key={country.code}
-              onClick={() => handleSelect(country)}
-              className={selectedItem === country ? 'selected' : ''}
+              key={index}
+              onClick={() => {
+                handleSelect(country);
+                changeColor();
+              }}
+              className={!click && index < 10 ? "first10" : ""}
+              style={{
+                backgroundColor: selectedItem === country ? selectedColor : "",
+              }}
             >
               {country.name}
             </li>

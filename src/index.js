@@ -8,7 +8,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// Supported in React 18+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
