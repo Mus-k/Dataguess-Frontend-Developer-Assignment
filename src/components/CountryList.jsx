@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-const COLORS = ["#451952", "#662549"];
+const COLORS = ["#7D7C7C", "#662549"];
 
 const CountryList = ({ data, error, loading }) => {
   const [selectedColor, setSelectedColor] = useState(COLORS[0]);
@@ -29,7 +29,6 @@ const CountryList = ({ data, error, loading }) => {
       }
     }
   }, [data, handleSelect, click]);
-  
 
   // filtering logic
   const filteredCountries = data
