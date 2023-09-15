@@ -10,16 +10,11 @@ const CountryList = ({ data, error, loading }) => {
   console.log(selectedColor);
   const handleSelect = useCallback((item) => {
     setSelectedItem(item);
-    // onSelect(item);
   }, []);
   const changeColor = () => {
     setSelectedColor(COLORS[1]);
     setClick(true);
   };
-  // const tenItems=data.countries.slice(0, 10).map(el=>
-  //   el
-  //   )
-  //   console.log(tenItems);
   useEffect(() => {
     if (data && data.countries.length > 0) {
       const initialSelection =
