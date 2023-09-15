@@ -1,5 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
-import CountryList from "./CountryList";
+import CountryList from "./components/CountryList";
+import './App.css'
 const GET_COUNTRIES = gql`
   query {
     countries {

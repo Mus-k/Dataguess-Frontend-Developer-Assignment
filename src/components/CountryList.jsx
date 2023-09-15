@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-import "./App.css";
-const COLORS = ["yellow", "#33FF57", "#5733FF", "#FFFF33", "#33FFFF"];
+
+const COLORS = ["#ddd", "#33FF59"];
 
 const CountryList = ({ data, error, loading }) => {
   const [selectedColor, setSelectedColor] = useState(COLORS[0]);
