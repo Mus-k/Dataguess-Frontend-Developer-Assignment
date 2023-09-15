@@ -1,9 +1,24 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
-  )
-}
+    <div className="nav-container">
+      <navbar className='nav'>
+        <Link to="https://www.dataguess.com/">
+          <img src="/logo.PNG" alt="dataguess-logo" />
+        </Link>
 
-export default Navbar
+        <ul>
+          <li>
+            <Link to="https://www.dataguess.com/form-toplanti">
+              Toplanti Talep Edin
+            </Link>
+          </li>
+        </ul>
+      </navbar>
+    </div>
+  );
+};
+
+export default Navbar;
