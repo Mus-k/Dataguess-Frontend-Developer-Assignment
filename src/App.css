@@ -16,7 +16,7 @@
 }
 
 .first10 {
-  background-color: #7D7C7C;
+  background-color: #7d7c7c;
 }
 
 /* navbar css */
@@ -103,5 +103,15 @@ ul li:hover {
   }
   .nav img {
     width: 120px;
+  }
+}
+@media screen and (max-width: 376px) {
+  ul li {
+   text-align: center;
+    padding: 5px 17px;
+    border-radius: 15px;
+  }
+  .nav img {
+    width: 80px;
   }
 }
