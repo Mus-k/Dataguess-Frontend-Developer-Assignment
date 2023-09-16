@@ -1,7 +1,24 @@
 import React, { useState, useEffect, useCallback } from "react";
-const COLORS = ["#7D7C7C", "#662549"];
+
+//predefined set of colors
+const COLORS = [
+  "#CCC8AA",
+  "#7D7C7C",
+  "#004225",
+  "#EBE4D1",
+  "#26577C",
+  "#35A29F",
+  "#AE445A",
+  "#8ECDDD",
+  "#4F709C",
+  "#176B87",
+  "#435334",
+  "#5C5470",
+  "#5C5470",
+];
 
 const CountryList = ({ data, error, loading }) => {
+  const [initialColor] = useState(COLORS[7]);
   const [selectedColor, setSelectedColor] = useState(COLORS[0]);
   const [filter, setFilter] = useState("");
   const [selectedItem, setSelectedItem] = useState(null);
@@ -12,8 +29,16 @@ const CountryList = ({ data, error, loading }) => {
   const handleSelect = useCallback((item) => {
     setSelectedItem(item);
   }, []);
+
+  function getRandomColor() {
+    const randomIndex = Math.floor(Math.random() * COLORS.length);
+    return COLORS[randomIndex];
+  }
+
+  // Generate a random color on each click
   const changeColor = () => {
-    setSelectedColor(COLORS[1]);
+    const randomBackgroundColor = getRandomColor();
+    setSelectedColor(randomBackgroundColor);
     setClick(true);
   };
 
@@ -77,12 +102,15 @@ const CountryList = ({ data, error, loading }) => {
                     handleSelect(country);
                     changeColor();
                   }}
-                  className={
-                    firstTen ? (!click && index < 10 ? "first10" : "") : ""
-                  }
                   style={{
                     backgroundColor:
-                      selectedItem === country ? selectedColor : "",
+                      // eslint-disable-next-line no-unused-vars
+                      selectedItem === country
+                        ? // eslint-disable-next-line no-unused-vars
+                          selectedColor
+                        : firstTen && !click && index < 10
+                        ? initialColor
+                        : "",
                   }}
                 >
                   <td>{country.name}</td>
