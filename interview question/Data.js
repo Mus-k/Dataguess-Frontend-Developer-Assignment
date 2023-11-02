@@ -73,7 +73,7 @@ let sapData = [
     },
   ]
 
-
+// filter where MDV 01===THP03;
   const filterData=sapData.filter((item)=>item[ "MDV 01"]=== 'THP03') 
   console.log(filterData);
   
