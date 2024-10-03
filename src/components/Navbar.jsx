@@ -5,14 +5,14 @@ const Navbar = () => {
   return (
     <div className="nav-container">
       <navbar className="nav">
-        <Link to="https://www.dataguess.com/">
-          <img src="/logo.PNG" alt="dataguess-logo" />
+        <Link to="https://www.dataguess.com/" className="logo">
+        React Js
         </Link>
 
         <ul>
           <li>
             <Link to="https://www.dataguess.com/form-toplanti">
-              Toplantı Talep Edin
+             Request
             </Link>
           </li>
         </ul>

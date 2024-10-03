@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <h1 className="title">Junior Frontend Developer Assignment</h1>
+      <h1 className="title">Working with Apollo Client in Reactjs</h1>
       <h4 className="list-title">Country List</h4>
       <div className="container">
         <CountryList data={data} error={error} loading={loading} />

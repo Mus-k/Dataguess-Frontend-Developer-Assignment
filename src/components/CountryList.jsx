@@ -90,7 +90,7 @@ const CountryList = ({ data, error, loading }) => {
           <table className="table">
             <thead>
               <tr>
-                <th>COUNTRY NAMES</th>
+                <th>Fetching Country Names</th>
                 <th>CODES</th>
               </tr>
             </thead>
@@ -109,7 +109,7 @@ const CountryList = ({ data, error, loading }) => {
                         ? // eslint-disable-next-line no-unused-vars
                           selectedColor
                         : firstTen && !click && index < 10
-                        ? initialColor
+                        ? ""
                         : "",
                   }}
                 >
