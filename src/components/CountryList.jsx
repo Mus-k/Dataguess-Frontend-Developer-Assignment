@@ -90,7 +90,7 @@ const CountryList = ({ data, error, loading }) => {
           <table className="table">
             <thead>
               <tr>
-                <th>Fetching Country Names</th>
+                <th>Country Names</th>
                 <th>CODES</th>
               </tr>
             </thead>

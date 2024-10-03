@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Navbar />
       <h1 className="title">Working with Apollo Client in Reactjs</h1>
-      <h4 className="list-title">Country List</h4>
+      <h4 className="list-title">Fetching Country Names</h4>
       <div className="container">
         <CountryList data={data} error={error} loading={loading} />
       </div>
